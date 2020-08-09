@@ -67,6 +67,7 @@
             this.часToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.часаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.часаToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.убратьЭкзаменToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -141,7 +142,6 @@
             this.progressBar28 = new System.Windows.Forms.ProgressBar();
             this.label53 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.убратьЭкзаменToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
@@ -302,7 +302,7 @@
             this.юПаруToolStripMenuItem11,
             this.убратьВсеПарыToolStripMenuItem});
             this.убратьToolStripMenuItem.Name = "убратьToolStripMenuItem";
-            this.убратьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.убратьToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.убратьToolStripMenuItem.Text = "Убрать";
             // 
             // юПаруToolStripMenuItem
@@ -373,7 +373,7 @@
             this.юПаруToolStripMenuItem13,
             this.добавитьВсеПарыToolStripMenuItem});
             this.добавитьToolStripMenuItem.Name = "добавитьToolStripMenuItem";
-            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.добавитьToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.добавитьToolStripMenuItem.Text = "Добавить";
             // 
             // юПаруToolStripMenuItem5
@@ -435,14 +435,14 @@
             // остановитьToolStripMenuItem
             // 
             this.остановитьToolStripMenuItem.Name = "остановитьToolStripMenuItem";
-            this.остановитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.остановитьToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.остановитьToolStripMenuItem.Text = "Остановить";
             this.остановитьToolStripMenuItem.Click += new System.EventHandler(this.остановитьToolStripMenuItem_Click);
             // 
             // продолжитьToolStripMenuItem
             // 
             this.продолжитьToolStripMenuItem.Name = "продолжитьToolStripMenuItem";
-            this.продолжитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.продолжитьToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.продолжитьToolStripMenuItem.Text = "Продолжить";
             this.продолжитьToolStripMenuItem.Click += new System.EventHandler(this.продолжитьToolStripMenuItem_Click);
             // 
@@ -454,29 +454,36 @@
             this.часаToolStripMenuItem1,
             this.убратьЭкзаменToolStripMenuItem});
             this.экзаменToolStripMenuItem.Name = "экзаменToolStripMenuItem";
-            this.экзаменToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.экзаменToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
             this.экзаменToolStripMenuItem.Text = "Экзамен";
             // 
             // часToolStripMenuItem
             // 
             this.часToolStripMenuItem.Name = "часToolStripMenuItem";
-            this.часToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.часToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.часToolStripMenuItem.Text = "1 час";
             this.часToolStripMenuItem.Click += new System.EventHandler(this.часToolStripMenuItem_Click);
             // 
             // часаToolStripMenuItem
             // 
             this.часаToolStripMenuItem.Name = "часаToolStripMenuItem";
-            this.часаToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.часаToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.часаToolStripMenuItem.Text = "1.5 часа";
             this.часаToolStripMenuItem.Click += new System.EventHandler(this.часаToolStripMenuItem_Click);
             // 
             // часаToolStripMenuItem1
             // 
             this.часаToolStripMenuItem1.Name = "часаToolStripMenuItem1";
-            this.часаToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.часаToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
             this.часаToolStripMenuItem1.Text = "2 часа";
             this.часаToolStripMenuItem1.Click += new System.EventHandler(this.часаToolStripMenuItem1_Click);
+            // 
+            // убратьЭкзаменToolStripMenuItem
+            // 
+            this.убратьЭкзаменToolStripMenuItem.Name = "убратьЭкзаменToolStripMenuItem";
+            this.убратьЭкзаменToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.убратьЭкзаменToolStripMenuItem.Text = "Убрать экзамен";
+            this.убратьЭкзаменToolStripMenuItem.Click += new System.EventHandler(this.убратьЭкзаменToolStripMenuItem_Click);
             // 
             // помощьToolStripMenuItem
             // 
@@ -1181,13 +1188,6 @@
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
-            // убратьЭкзаменToolStripMenuItem
-            // 
-            this.убратьЭкзаменToolStripMenuItem.Name = "убратьЭкзаменToolStripMenuItem";
-            this.убратьЭкзаменToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.убратьЭкзаменToolStripMenuItem.Text = "Убрать экзамен";
-            this.убратьЭкзаменToolStripMenuItem.Click += new System.EventHandler(this.убратьЭкзаменToolStripMenuItem_Click);
-            // 
             // label54
             // 
             this.label54.AutoSize = true;
@@ -1310,6 +1310,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Form1";
             this.Text = "MTUCI Clock";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

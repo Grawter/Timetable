@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace MTUCI_Clock
@@ -26,6 +27,8 @@ namespace MTUCI_Clock
 
         private void Form1_Load(object sender, EventArgs e) // При загрузке формы
         {
+            Logger.Log("=================================");
+            Logger.Log("Запушена программа хронометр МТУСИ"); // логгирования
             pictureBox1.Image = Properties.Resources.d_img; // Загрузка картинки циферблата часов из ресурсов
             progressBar1.Maximum = 45; // 1 часть 1 пары
             progressBar2.Maximum = 5; // перерыв
@@ -405,7 +408,7 @@ namespace MTUCI_Clock
             label47.Visible = true;
         }
 
-        private void убратьВсеПарыToolStripMenuItem_Click(object sender, EventArgs e) // Удаление все пар
+        private void убратьВсеПарыToolStripMenuItem_Click(object sender, EventArgs e) // Удаление всех пар
         {
             юПаруToolStripMenuItem_Click_1(sender, e);
             юПаруToolStripMenuItem1_Click(sender, e);
@@ -427,13 +430,15 @@ namespace MTUCI_Clock
             юПаруToolStripMenuItem13_Click(sender, e);
         }
 
-        private void остановитьToolStripMenuItem_Click(object sender, EventArgs e) // Остановить 
+        private void остановитьToolStripMenuItem_Click(object sender, EventArgs e) // Остановить общее время
         {
+            Logger.Log("Время часов оставновленно");
             timer1.Stop();
         }
 
-        private void продолжитьToolStripMenuItem_Click(object sender, EventArgs e) // Продолжить
+        private void продолжитьToolStripMenuItem_Click(object sender, EventArgs e) // Продолжить общее время
         {
+            Logger.Log("Время часов возобновлено");
             timer1.Start();
         }
 
@@ -573,9 +578,10 @@ namespace MTUCI_Clock
                 label51.Text = "Рабочий день окончен";
             }
         }*/
-
+   
         public void часToolStripMenuItem_Click(object sender, EventArgs e) // экзамен длительностью 1 час
         {
+            Logger.Log("Запущен экзамен длительностью 1 час");
             int start_hour = DateTime.Now.Hour, start_minute = DateTime.Now.Minute; 
             start_time = start_hour * 60 + start_minute;
             min_ekz = 60;
@@ -599,8 +605,9 @@ namespace MTUCI_Clock
             timer2.Start();   
         }
 
-        private void часаToolStripMenuItem_Click(object sender, EventArgs e) // экзамен длительностью 1.5 час
+        private void часаToolStripMenuItem_Click(object sender, EventArgs e) // экзамен длительностью 1.5 часа
         {
+            Logger.Log("Запущен экзамен длительностью 1.5 часа");
             int start_hour = DateTime.Now.Hour, start_minute = DateTime.Now.Minute;
             start_time = start_hour * 60 + start_minute;
             min_ekz = 90;
@@ -651,8 +658,9 @@ namespace MTUCI_Clock
             timer2.Start();  
         }
 
-        private void часаToolStripMenuItem1_Click(object sender, EventArgs e) // экзамен длительностью 2 час
+        private void часаToolStripMenuItem1_Click(object sender, EventArgs e) // экзамен длительностью 2 часа
         {
+            Logger.Log("Запущен экзамен длительностью 2 часа");
             int start_hour = DateTime.Now.Hour, start_minute = DateTime.Now.Minute;
             start_time = start_hour * 60 + start_minute;
             min_ekz = 120;
@@ -688,19 +696,29 @@ namespace MTUCI_Clock
             else
             {
                 label51.Visible = true;
+                Logger.Log("Время экзамена окончено");
                 label51.Text = "Время экзамена окончено";
             }
         }
 
         private void убратьЭкзаменToolStripMenuItem_Click(object sender, EventArgs e) // убрать информацию об экзамене
         {
-            timer2.Stop();
-            label51.Visible = false;
-            label52.Visible = false;
-            label53.Visible = false; 
-            label54.Visible = false;
-            label55.Visible = false;
-            progressBar28.Visible = false;
+            Form2 F2 = new Form2(); // открытие второй формы, запрашиваюшей пароль
+            F2.ShowDialog();        
+
+            if (F2.autification == true)
+            {
+                Logger.Log("Назначенный экзамен отключён");
+                timer2.Stop();
+                label51.Visible = false;
+                label52.Visible = false;
+                label53.Visible = false;
+                label54.Visible = false;
+                label55.Visible = false;
+                progressBar28.Visible = false;
+            }
+            else
+                return; 
         }
 
         //private void button2_Click(object sender, EventArgs e) // для отладки экзамена
@@ -716,5 +734,11 @@ namespace MTUCI_Clock
         //        label51.Text = "Время экзамена окончено";
         //    }    
         //}
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e) // при закрытии формы
+        {
+            Logger.Log("Закрыта программа хронометр МТУСИ");
+            Logger.Log("=================================");
+        }
     }
 }
